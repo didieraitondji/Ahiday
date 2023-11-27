@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="css/style.css">
+    <title>AhiDay | CLUB IA</title>
+</head>
+
+<body>
+    <div class="loading_content">
+        <img src="img/logo_Ahiday.png" alt="" class="icon_app">
+        <div class="nomApp">AhiDay</div>
+        <div class="chargement"></div>
+    </div>
+    <header>
+        <img src="img/logo_menus.png" alt="menus" class="menusBtn">
+        <span class="nomMenusApp">AhiDay</span>
+        <span>
+            <img src="img/logo.jpg" alt="" class="actualiser">
+        </span>
+    </header>
+    <div class="menus">
+        <div>
+            <span>Aujourd'hui</span>
+            <span>AhiDay</span>
+            <!-- span>calendrier</span>
+            <span>Suggestions</span -->
+        </div>
+        <div>
+            <span>à propos</span>
+            <!-- span>Faire un DON</span>
+            <span>Zoom Dev</span>
+            <span>Partager</span -->
+        </div>
+        <div>
+            <img src="img/logo.jpg" alt="" class="logo_menus">
+        </div>
+    </div>
+
+    <div class="corps" id="aujourdhui">
+        <div class="au_info">
+            Les marhés du Jour,
+            <span class="nbreMarche"> </span> marchés
+        </div>
+        <table class="au_table">
+            <tr>
+                <th>N°</th>
+                <th>Marché</th>
+            </tr>
+        </table>
+        <div class="defileDate">
+            <span title="Allez au jour précédent" class="precedenteDate">
+                < </span>
+                    <div class="dateDuJours">
+                        la date
+                    </div>
+                    <span title="Allez au jour Suivant" class="suivanteDate">
+                        >
+                    </span>
+        </div>
+    </div>
+
+    <div class="corps">
+        <div class="calendrier" id="hautapp">
+            <div class="choix">
+                <form id="formMarche">
+                    <div>
+                        <label for="departement">Département</label>
+                        <select name="departement" id="departement">
+                            <option value="">Département</option>
+                            <option value="Atacora" class="dep">Atacora</option>
+                            <option value="Alibori" class="dep1">Alibori</option>
+                            <option value="Atlantique">Atlantique</option>
+                            <option value="Borgou">Borgou</option>
+                            <option value="Colline">Colline</option>
+                            <option value="Couffo">Couffo</option>
+                            <option value="Donga">Donga</option>
+                            <option value="Littoral">Littoral</option>
+                            <option value="Mono">Mono</option>
+                            <option value="Oueme">Ouémé</option>
+                            <option value="Plateau">Plateau</option>
+                            <option value="Zou">Zou</option>
+                        </select>
+                    </div>
+                    <div class="allMarket">
+                        <label for="marcher">Marché</label>
+                        <select name="marcher" id="marcher" disabled="disabled">
+                            <option value=""></option>
+                        </select>
+                    </div>
+                    <div class="valideBtnDiv">
+                        <div style="text-align:left;"><span class="simule"></span>
+                            <span class="nouveau" style="display: none;">
+                                nouveau
+                            </span>
+                        </div>
+                        <div style="text-align:right;"><span class="simule">
+                                <span class="valideBtn">
+                                    Continue
+                                </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="lehaut">
+                <span title="Allez au mois précédent" class="precedent">
+                    < </span>
+                        <div class="tetemois">
+                            <div class="nomMois"></div>
+                        </div>
+                        <span title="Allez au mois Suivant" class="suivant">
+                            >
+                        </span>
+            </div>
+
+        </div>
+        <div class="pDatesMarche" id="pDatesMarche">
+            <span class="pDatesMarchespUn">
+
+            </span>
+        </div>
+
+        <div class="market_day">
+
+        </div>
+        <div class="pDatesMarche"></div>
+        <div class="lebas">
+            <div class="jours"></div>
+        </div>
+        <div id="showCalendar"></div>
+        <a href="#showCalendar" class="showCalendar">Afficher le calendrier</a>
+
+    </div>
+
+    /* les autres div pour les menus */
+    <div class="corps" id="propos">
+        <h1>AhiDay</h1> <br>
+        <img src="img/logo.jpg" alt="" class="logo_menus">
+        <br>
+        Suites aux tracasseries liés à la connaissance exacte des jours d'animations des marchés de nos communes ou
+        localités. Le Club d'intelligence artificielle du Caeb de Natitingou a mît au point un moyen très efficace de
+        connaître les jours d'animations des marchés du Bénin tout en respectant leurs périodicités.
+        <br>
+        <br>
+        <a href="https://club-ia-biblionati.github.io/home/">CLUB IA CAEB NAtitingou</a>
+    </div>
+    <div class="corps" id="clubIA">
+        mail
+    </div>
+    <div class="corps" id="clubIA">
+        Don
+    </div>
+    <div class="corps" id="clubIA">
+        Zoom Dev
+    </div>
+    <div class="corps" id="clubIA">
+        Partage
+    </div>
+    /* fin des div du menus */
+
+    <!-- balise pour remplacer la balise fixer en bas -->
+    <div class="replaceleHaut">
+        <img src="img/logo.jpg" alt="">
+    </div>
+    <!-- fin balise pour remplacer la balise fixer en bas -->
+
+
+    <!-- fenêtre de notification -->
+    <div class="notification" id="notification">
+        <div class="content">
+            <div class="notif_content">
+                <span class="date_notif"></span><br>
+                <span>Jour du marché de <br><span class="mkteName"></span></span>
+            </div>
+            <span class="closebtn">&times;</span>
+        </div>
+    </div>
+    <!-- fin fenêtre de notification -->
+
+    <!-- flêche de retour en haut -->
+    <div class="rthautParent">
+        <a href="#hautapp" class="rthaut" style="display:none;" title="Aller en haut de l'applie">
+            <img src="img/retour.png" alt="retour_haut">
+        </a>
+    </div>
+
+    <!-- fin flêche de retour en haut -->
+
+    <!-- notificcation des marchés au survol -->
+    <div class="marcherSurvoleParent">
+        <div class="marcherSurvole">
+
+        </div>
+    </div>
+    <!-- fin notificcation des marchés au survol -->
+
+    <script>
+        function showContent() {
+            document.querySelector('.loading_content').classList.add('charge_fini');
+        }
+        setTimeout(showContent, 10);
+    </script>
+    <script src="js/lesDepartements.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/marcheFuture.js"></script>
+</body>
+
+</html>
