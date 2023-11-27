@@ -1,0 +1,769 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  width: 100%;
+  background-color: aqua;
+}
+
+/* Le style de la fenêtre de chargement */
+.loading_content {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: white;
+  z-index: 1111;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  text-align: center;
+  padding-top: 18vh;
+}
+
+.nomApp {
+  color: #32456b;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.charge_fini {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.chargement {
+  margin: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  border: 5px solid orange;
+  width: 25px;
+  height: 25px;
+  border-top-color: #132333;
+  border-radius: 50%;
+  animation: chargeur 2s linear infinite;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+.icon_app {
+  width: 160px;
+  margin-top: 100px;
+}
+
+@keyframes chargeur {
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-top-color: #000066;
+  }
+  25% {
+    border-top-color: #000066;
+  }
+  50% {
+    transform: rotate(360deg) scale(1);
+    border-top-color: #000066;
+  }
+  75% {
+    border-top-color: #000066;
+  }
+  100% {
+    transform: rotate(720deg) scale(1);
+    border-top-color: #000066;
+  }
+}
+
+/* fin des styles de chargement de la page */
+
+header {
+  background-color: #32456b;
+  display: grid;
+  grid-template-columns: 25% auto 20%;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 55px;
+  border-bottom: 1px solid white;
+}
+
+header > img {
+  width: 35px;
+  margin-left: 20px;
+  border-radius: 15px;
+}
+header > span:nth-child(2) {
+  padding: 5px 0px;
+  font-weight: bold;
+  font-size: 1.2em;
+  color: orange;
+  text-align: center;
+  padding-right: 25px;
+}
+header > span:nth-child(3) {
+  text-align: right;
+  padding-right: 20px;
+}
+header > span:nth-child(3) img {
+  width: 35px;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+
+/* mise en forme des menus */
+.menus {
+  background-color: #33415e;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 53px;
+  width: 50%;
+  padding: 15px;
+  /*margin-left: -50%;*/
+  display: none;
+  z-index: 1000;
+  overflow: auto;
+}
+
+.nomMenusApp {
+  text-transform: capitalize;
+}
+
+.menus > div {
+  border-bottom: 2px solid white;
+  display: grid;
+  grid-template-columns: auto;
+  padding: 6px;
+  grid-gap: 10px;
+}
+.menus > div > span {
+  font-size: 1.1em;
+  font-weight: bold;
+  padding: 7px 10px;
+  color: white;
+  border-radius: 3px;
+  color: orange;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+.menus > div > span:hover {
+  background-color: #686a6e;
+}
+.menus > div:nth-child(3) {
+  border-bottom: none;
+  padding-top: 45px;
+}
+
+/*******************************************************/
+
+.mois {
+  background-color: white;
+  border: 1px solid #003399;
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.nomMois {
+  background-color: #38538a;
+  color: white;
+  font-weight: bold;
+  padding: 3px;
+  font-size: 1em;
+  text-align: center;
+}
+
+.jours {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-gap: 1px;
+}
+
+.jours > span {
+  text-align: center;
+  background-color: rgb(79, 166, 201);
+  color: #32456b;
+  font-weight: bold;
+  line-height: 45px;
+}
+
+.jours > span:hover {
+  background-color: #38538a;
+  color: white;
+  cursor: pointer;
+}
+
+#moisCourant {
+  background-color: rgb(189, 40, 40);
+}
+
+#jcourant {
+  background-color: rgb(189, 62, 62);
+  color: white;
+}
+
+/* mise en forme du corps */
+.corps {
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #32456b;
+  padding: 0px 6px 55px 6px;
+  position: fixed;
+  top: 54px;
+  left: 0;
+  right: 0;
+  bottom: 49px;
+  overflow: auto;
+  scroll-behavior: smooth;
+}
+
+/* mise en forme de boite 1 */
+.calendrier {
+  border: 1px solid #32456b;
+}
+
+.choix {
+  background-color: #32456b;
+  color: orange;
+  padding: 8px 10px;
+  font-size: 1.2em;
+}
+
+.choix form {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 5px;
+  padding: 5px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  padding: 7px 0px 7px 0px;
+}
+
+select {
+  background-color: rgb(122, 108, 82);
+  color: white;
+  padding: 5px 8px;
+  font-size: 1.1em;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+  border-radius: 12px;
+}
+
+select option {
+  padding: 3px 15px;
+  border-radius: 5px;
+  font-size: 0.8em;
+  border-bottom: 1px solid white;
+}
+select > option:nth-child(1) {
+  font-style: italic;
+  font-size: 0.6em;
+}
+
+/* le haut maintenant */
+.lehaut {
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  align-items: center;
+  background-color: #38538a;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 99;
+}
+
+/* remplaçant */
+.replaceleHaut {
+  background-color: #38538a;
+  padding: 5px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 48px;
+  z-index: -1;
+  text-align: center;
+}
+
+.replaceleHaut img {
+  width: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.lebas {
+  margin: 3px;
+  padding: 3px;
+  border: 1px solid #003399;
+}
+
+.lehaut span {
+  font-weight: 80;
+  font-size: 2em;
+  background-color: rgb(231, 182, 89);
+  text-align: center;
+  color: rgb(24, 8, 85);
+  cursor: pointer;
+  border: 1px solid rgb(160, 134, 86);
+  user-select: none;
+  border-radius: 3px;
+}
+
+.lehaut span:hover {
+  background-color: rgb(196, 158, 87);
+}
+
+.dates {
+  width: 100%;
+  border: 1px solid #003399;
+  border-radius: 6px;
+  padding: 0px 7px 7px 7px;
+  margin: 20px 0px;
+  text-align: center;
+}
+
+.numeros {
+  font-style: italic;
+  padding: 2px 10px;
+  border-radius: 0px 0px 3px 3px;
+  text-align: center;
+  background-color: rgb(141, 91, 99);
+  color: white;
+}
+
+.datesdiv1 {
+  display: grid;
+  grid-template-columns: 10px 40px auto;
+  align-items: center;
+}
+
+.pointconnect {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  position: absolute;
+  margin-left: -4px;
+  background-color: rgba(128, 128, 128, 0.309);
+}
+
+#pointconnectj {
+  background-color: green;
+  border: 1px solid #003399;
+}
+
+#lettreJour {
+  text-align: center;
+  line-height: 45px;
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  font-weight: bold;
+  border: 1px solid #003399;
+}
+
+.nomCompletJour {
+  text-align: left;
+  font-weight: bold;
+  padding-left: 50px;
+  color: rgb(44, 44, 173);
+}
+
+.banniere1 {
+  text-align: center;
+  font-style: italic;
+  text-transform: capitalize;
+  background-image: url(../img/logoia.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  border-radius: 6px;
+}
+
+.banniere2 {
+  padding-top: 10px;
+  background-color: #003399e4;
+  border-radius: 5px;
+  margin: 5px 0px;
+  color: pink;
+}
+
+.informations {
+  padding: 80px 5px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.signature {
+  text-align: right;
+  padding: 7px;
+  padding-right: 35px;
+  text-decoration: underline;
+  font-style: italic;
+  color: orange;
+}
+
+/* mise en forme des jours */
+
+.Lundi {
+  background-color: gray;
+  color: white;
+}
+
+.Mardi {
+  background-color: maroon;
+  color: white;
+}
+
+.Mercredi {
+  background-color: pink;
+  color: rgb(19, 17, 17);
+}
+
+.Jeudi {
+  background-color: yellow;
+  color: #003399;
+}
+
+.Vendredi {
+  background-color: green;
+  color: white;
+}
+
+.Samedi {
+  background-color: red;
+  color: black;
+}
+
+.Dimanche {
+  background-color: white;
+  color: black;
+}
+
+/* mise en forme de la boite de notification.*/
+
+.notification {
+  width: 80%;
+  height: 40vh;
+  position: fixed;
+  left: 10%;
+  right: 10%;
+  bottom: 30vh;
+  background-color: rgba(18, 18, 195, 0.635);
+  display: none;
+  border-radius: 10px;
+  z-index: 1000;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  /* display: none; */
+}
+
+.notification_fini {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.content {
+  background-color: #000066;
+  width: 100%;
+  padding: 10px 10px 15px 15px;
+  margin: 0 auto;
+  border: 1px solid #003399;
+  height: 100%;
+  align-items: center;
+  color: orange;
+  border-radius: 10px;
+}
+
+.closebtn {
+  font-weight: bold;
+  font-size: 2em;
+  cursor: pointer;
+  text-align: center;
+  position: absolute;
+  top: 5px;
+  right: 13px;
+}
+
+.notif_content {
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  line-height: 6vh;
+  padding-top: 8vh;
+}
+
+.mkteName {
+  font-size: 1.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* mise en forme du bouton afficher/cacher le calendrier */
+
+.showCalendar {
+  background-color: #003399;
+  color: orange;
+  text-align: center;
+  padding: 5px 3px;
+  margin: 3px;
+  border: 1px solid #003399;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.showCalendar:hover {
+  background-color: #18459e;
+}
+
+.lebas {
+  display: none;
+}
+
+/* les jours du marché */
+
+.pDatesMarche {
+  background-color: #32456b;
+  color: orange;
+  margin: 5px 0px;
+  padding: 10px;
+  font-weight: bold;
+}
+#pDatesMarche {
+  display: none;
+}
+
+.pDatesMarchespUn {
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 2em;
+}
+.pDatesMarchespDeux {
+  display: block;
+  text-align: center;
+  font-family: cursive;
+}
+
+.showCalendar {
+  display: block;
+  background-color: #32456b;
+  color: orange;
+  text-align: center;
+  margin: 5px 0px;
+  padding: 15px 10px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.market_day {
+  min-height: 50px;
+}
+
+.actualiser {
+  border: 1px solid #003399;
+}
+
+.actualiser:hover {
+  cursor: pointer;
+  border: 1px solid orange;
+}
+
+.logo_menus {
+  width: 50%;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+/* ********************** ******************* ********** */
+/* mise en forme des formes */
+.valideBtnDiv {
+  text-align: center;
+  padding: 25px 0px 0px 0px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.valideBtn,
+.nouveau {
+  background-color: rgb(231, 182, 89);
+  color: #000066;
+  padding: 7px 15px 5px 15px;
+  border-radius: 12px;
+  user-select: none;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: bold;
+  width: max-content;
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/*.valideBtn:hover {
+  background-color: rgb(231, 182, 89);
+} */
+
+.allMarket {
+  display: none;
+}
+
+/* ********************** *************************** */
+.rthaut {
+  display: block;
+  width: 40px;
+  position: fixed;
+  bottom: 58px;
+  right: calc(50vw - 20px);
+  padding: 2px 2px 0px 2px;
+  border-radius: 50%;
+  background-color: orange;
+  cursor: pointer;
+}
+
+.rthaut:hover {
+  background-color: rgb(250, 177, 42);
+}
+.rthaut img {
+  width: 100%;
+  border-radius: 50%;
+}
+/* ********************** *************************** */
+/* ********************** *************************** */
+.marcherSurvoleParent {
+  position: fixed;
+  width: 100%;
+  top: 55px;
+  display: grid;
+  justify-content: center;
+}
+.marcherSurvole {
+  background-color: #000066;
+  width: max-content;
+  color: orange;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-transform: capitalize;
+  padding: 10px 15px;
+  border-radius: 70px;
+  z-index: 999;
+  display: none;
+  border: 1px solid white;
+}
+
+/* ******************************************* */
+/* styles des autres corps */
+.au_info {
+  background-color: #000066;
+  padding: 15px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", sans-serif;
+  font-weight: bold;
+  color: orange;
+  font-size: 1rem;
+  margin-bottom: 15px;
+  position: fixed;
+  top: 55px;
+  left: 2px;
+  right: 2px;
+}
+#aujourdhui {
+  padding: 10px 6px;
+  padding-top: 46px;
+  margin-top: 10px;
+}
+.au_table {
+  width: 100%;
+  border: 1px solid rgb(139, 139, 214);
+  /* padding: 5px; */
+}
+tr {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+tr th:nth-child(2) {
+  text-align: left;
+}
+tr th {
+  padding: 5px 8px;
+  text-transform: capitalize;
+  border-right: 1px solid white;
+}
+tr td {
+  padding: 8px 8px;
+  border-right: 1px solid white;
+  text-transform: capitalize;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+tr td:nth-child(1) {
+  text-align: center;
+}
+
+tr:nth-child(2n-1) {
+  background-color: #cdd0d6;
+  color: #18459e;
+}
+tr:nth-child(2n) {
+  background-color: #0d6f9c;
+  color: white;
+}
+
+/* mise en forme de defiledate pour défiler les dates, histoire de voir les marchés qui vont s'animer demain, après demain, ... et aussi les marchés qui se sont animé hier ...etc. */
+
+.defileDate {
+  display: grid;
+  grid-template-columns: 50px auto 50px;
+  align-items: center;
+  background-color: #38538a;
+  padding: 5px;
+  height: 48px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.defileDate > span {
+  font-weight: 80;
+  font-size: 2em;
+  background-color: rgb(231, 182, 89);
+  text-align: center;
+  color: rgb(24, 8, 85);
+  cursor: pointer;
+  border: 1px solid rgb(160, 134, 86);
+  user-select: none;
+  border-radius: 3px;
+}
+
+.defileDate > div {
+  text-align: center;
+}
+
+/* ************************************** */
+#propos {
+  color: rgb(24, 8, 85);
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 1.3em;
+  line-height: 1.7em;
+}
+
+/* ******************************************* */
+/* ******************************************* */
+/* Imposition de largeur pour le corps face aux grandes fenêtres */
+@media screen and (min-width: 400px) {
+  .corps {
+    width: 400px;
+  }
+}
+
+/* #aujourdhui {
+  overflow: auto;
+} */
